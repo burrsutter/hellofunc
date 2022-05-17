@@ -42,3 +42,40 @@ This function project includes a [unit test](./test/unit.js) and an [integration
 ```console
 npm test
 ```
+
+## Setup
+Add `kn` and `kn-func` to PATH
+
+https://github.com/knative/client/releases
+
+https://knative.dev/docs/install/client/kn-plugins/
+
+https://knative.dev/docs/install/client/kn-plugins/#list-of-knative-plugins
+
+https://github.com/knative-sandbox/kn-plugin-func/releases/tag/v0.23.1
+
+`mv func_darwin_amd64 kn-func`
+
+`chmod +x kn-func`
+
+`kn func create -l node -t http hellofunc`
+
+`cd hellofunc`
+
+set KUBECONFIG to empty file
+
+`export KUBECONFIG=~/openshift/functions/kubeconfigs/burrsitis-sandbox`
+
+`oc login` 
+
+`kn func build -r quay.io/burrsutter`
+
+`docker push quay.io/burrsutter/hellofunc:latest`
+
+Make public https://www.screencast.com/t/SSULdydZm
+
+`kn func deploy -r quay.io/burrsutter`
+
+
+
+
